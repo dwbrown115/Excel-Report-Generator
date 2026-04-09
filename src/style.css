@@ -1,0 +1,241 @@
+:root {
+  --ink: #111827;
+  --paper: #fff8ef;
+  --accent: #0d9488;
+  --accent-2: #be123c;
+  --card: #ffffff;
+  --border: #1f293733;
+  --muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Avenir Next', 'Trebuchet MS', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #99f6e4 0%, #99f6e400 35%),
+    radial-gradient(circle at 95% 80%, #fecdd3 0%, #fecdd300 38%),
+    linear-gradient(140deg, #fff8ef 0%, #fef3c7 100%);
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: calc(100vw - 3rem);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 18px 45px #1f293724;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+h1 {
+  margin: 0.3rem 0 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.8rem, 4.8vw, 3rem);
+}
+
+.subtitle {
+  margin: 0.65rem 0 1.2rem;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.file-input-wrap {
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+input[type='file'] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px dashed color-mix(in srgb, var(--accent) 65%, #0000);
+  border-radius: 14px;
+  background: #ffffffcc;
+  color: var(--ink);
+}
+
+.status {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.actions-row {
+  margin-bottom: 0.9rem;
+}
+
+.action-button {
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--border));
+  border-radius: 10px;
+  padding: 0.48rem 0.9rem;
+  background: color-mix(in srgb, var(--accent) 15%, #ffffff);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.action-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.tab-button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.42rem 0.8rem;
+  background: #ffffffb5;
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab-button.is-active {
+  background: color-mix(in srgb, var(--accent) 22%, #ffffff);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+.tab-panel.is-hidden {
+  display: none;
+}
+
+.results {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #ffffffd6;
+  padding: 1rem;
+}
+
+.results h2 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.table-wrap {
+  width: 100%;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+#results-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+#calibration-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+#results-table th,
+#results-table td {
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+#calibration-table th,
+#calibration-table td {
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px dashed #cbd5e1;
+}
+
+#results-table th:first-child,
+#results-table td:first-child {
+  width: 1%;
+}
+
+#results-table td.analytics-cell {
+  white-space: normal;
+  width: 360px;
+  min-width: 320px;
+  max-width: 420px;
+  line-height: 1.35;
+}
+
+#results-table .result-row td:not(.analytics-cell) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#results-table th {
+  position: sticky;
+  top: 0;
+  background: #fff8;
+  backdrop-filter: blur(3px);
+}
+
+#calibration-table th {
+  position: sticky;
+  top: 0;
+  background: #fff8;
+  backdrop-filter: blur(3px);
+}
+
+#results-table .group-row td:first-child {
+  font-weight: 700;
+}
+
+#results-table .result-row-no-pass td:not(:first-child):not(.analytics-cell) {
+  background: #da9694;
+}
+
+#results-table .result-row-red td:not(:first-child):not(.analytics-cell) {
+  background: red;
+}
+
+#results-table .result-row-orange td:not(:first-child):not(.analytics-cell) {
+  background: orange;
+}
+
+#results-table .result-row-yellow td:not(:first-child):not(.analytics-cell) {
+  background: yellow;
+}
+
+#results-table .result-row-green td:not(:first-child):not(.analytics-cell) {
+  background: green;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    border-radius: 18px;
+    padding: 1rem;
+  }
+}
