@@ -32,3 +32,22 @@ The app treats the first row as headers/labels, then:
 ```bash
 npm run build
 ```
+
+## No-host Windows usage (build once, open in Chrome)
+
+You can run this app without hosting and without installing Node.js on the target machine.
+
+1. On your build machine, run:
+
+```bash
+npm install
+npm run build
+```
+
+2. Copy the full `dist` folder to the Windows machine.
+3. On Windows, open `dist/index.html` in Chrome (double-click, or right-click > Open with > Google Chrome).
+4. Create a desktop shortcut to `dist/index.html` (or to Chrome with that file path as an argument) so users can launch from an icon.
+
+Notes:
+- Keep the `assets` folder next to `index.html` exactly as generated.
+- If this app is used from very restrictive browser policies, you may still prefer running from `http://localhost`.
